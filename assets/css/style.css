@@ -1,1 +1,116 @@
-body {}
+body{
+
+background: #136a8a; /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #136a8a , #267871); /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #136a8a , #267871); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+color: white;
+}
+
+.header{
+	padding-top: 50px;
+	text-align: center;
+	font-family:sans-serif;
+	font-size: 45px;
+}
+.dropdown-toggle{
+	border:0px;
+}
+
+#custom-search-input{
+    padding: 3px;
+    border-right: solid 1px white;
+    border-left: solid 1px white;
+    border-radius: 0px;
+    background-color: #fff;
+	opacity:0.5;
+	z-index: 1;
+}
+
+#custom-search-input input{
+    border: 0;
+    box-shadow: none;
+
+}
+
+#custom-search-input button{
+    margin: 2px 0 0 0;
+    background: none;
+    box-shadow: none;
+    border: 0;
+    color: #666666;
+    padding: 0 8px 0 10px;
+    border-left: solid 1px #ccc;
+}
+
+#custom-search-input .glyphicon-search{
+    font-size: 20px;
+}
+
+
+.owl-carousel{
+	margin-top: 50px;
+}
+
+
+#owl-example-2{
+  display: block;
+  padding: 0px 0px;
+  margin-left: 0px;
+  color: #FFF;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  text-align: center;
+}
+
+#owl-example-1, #owl-example-2,#owl-example-3, #owl-example-4{
+	text-align: center;
+}
+
+
+.owl-theme .owl-controls{
+	margin-top: 10px;
+	text-align: center;
+}
+
+
+.owl-theme .owl-controls .owl-buttons div{
+	color: #FFF;
+	display: inline-block;
+	zoom: 1;
+	*display: inline;/*IE7 life-saver */
+	margin: 5px;
+	padding: 3px 10px;
+	font-size: 12px;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	border-radius: 30px;
+	background: #purple;
+	/*filter: Alpha(Opacity=50);/*IE7 fix*/*/
+	/*opacity: 0.5;*/
+}
+ 
+.owl-theme .owl-buttons i{
+  margin-top: 2px;
+}
+ 
+.owl-theme .owl-controls.clickable .owl-buttons div:hover{
+	filter: Alpha(Opacity=100);/*IE7 fix*/
+	opacity: 1;
+	text-decoration: none;
+}
+/*//To move navigation buttons outside use these settings:
+*/ 
+.owl-theme .owl-controls .owl-buttons div {
+  position: absolute;
+}
+ 
+.owl-theme .owl-controls .owl-buttons .owl-prev{
+  left: -45px;
+  top: 55px; 
+}
+ 
+.owl-theme .owl-controls .owl-buttons .owl-next{
+  right: -45px;
+  top: 55px;
+}
