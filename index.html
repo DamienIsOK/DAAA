@@ -1,109 +1,62 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="description" content="DAAA project">
-  <meta name="keywords" content="HTML,CSS,JavaScript,jQuery,AJAX,firebase">
-  <meta name="author" content="Arcy Damien Aaron Arpad">
-  <!-- Latest compiled and minified CSS & JS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-  <script src="https://code.jquery.com/jquery.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-
-  <link rel="stylesheet" type="text/css" href="assets/css/normalize.css">
-  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-  
-  <!-- Important Owl stylesheet -->
-	<link rel="stylesheet" href="assets/owl-carousel/owl.carousel.css">
-	 
-	<!-- Default Theme -->
-	<link rel="stylesheet" href="assets/owl-carousel/owl.theme.css">
-	 
-	<!-- Include js plugin -->
-	<script src="assets/owl-carousel/owl.carousel.js"></script>
-  <title></title>
+	<meta charset="UTF-8">
+	<title>Layout</title>
+	<!-- Latest compiled and minified CSS & JS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:800" rel="stylesheet">
+	<link rel="stylesheet" href="assets/css/reset.css">
+	<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+	
+	<div class="jumbotron">
+		<div class="container">
+			<h1>reply<span id="hubFont">HUB</span></h1>
+			<div class="row">
+				<div class="col-xs-2 col-s-4 col-md-4 col-lg-4">	
+				</div>
+				<div class="col-xs-8 col-s-4 col-md-4 col-lg-4">
+				    <div class="input-group">
+				      <input type="text" id="search" class="form-control"  placeholder="">
+				      <span class="input-group-btn">
+				        <button class="btn btn-secondary" id="submit" type="button"><span class="glyphicon glyphicon-search" style="color:white; font-size: 20px"></span></button>
+				      </span>
+				    </div>
+				</div>
+			</div>
+		
+			
+		</div>
+	</div>
 
-<div class="header">
-   <h1>Reply<span><img src="assets/images/reply-all.png" height="150"></span>Hub</h1>
-</div>
-
-<div class="container">
-	<div class="row">
-		<div class="col-md-1"></div>
-        <div class="col-md-10">
-            <div id="custom-search-input">
-                <div class="input-group col-md-12">
-                 <div class="input-group-btn">
-			        <button type="button" class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">All Types <span class="caret"></span></button>
-			        <ul class="dropdown-menu">
-			          <li><a href="#">Images</a></li>
-			          <li><a href="#">Gifs</a></li>
-			          <li><a href="#">Videos</a></li>
-			          <li><a href="#">Articles</a></li>
-			        </ul>
-			    </div> 
-                    <input type="text" class="form-control input-lg" placeholder="Search"/>
-                    <span class="input-group-btn">
-                        <button class="btn btn-default btn-lg" type="button">
-                            <i class="glyphicon glyphicon-search"></i>
-                        </button>
-                    </span>
-                </div>
-            </div>
-        </div>
+<div class="row" id="icons">
+	<div class="col-xs-2 col-sm-2 col-md-3 col-lg-2" id="spacer">
+		
+	</div>
+	<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" id="gifIcon">
+		
+	</div>
+	<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" id="imageIcon">
+		
+	</div>
+	<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" id="videoIcon">
+		
+	</div>
+	<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" id="tumblrIcon">
+		
+	</div>
+	<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" id="wikiIcon">
+		
 	</div>
 </div>
 
 
-<div class="container">
-  <div id="owl-example-1" class="owl-carousel owl-theme">
-	  <div><img src="http://placehold.it/350x200"></div>
-	  <div><img src="http://placehold.it/350x200"></div>
-	  <div><img src="http://placehold.it/350x200"></div>
-	  <div><img src="http://placehold.it/350x200"></div>
-	  <div><img src="http://placehold.it/350x200"></div>
-	  <div><img src="http://placehold.it/350x200"></div>
-	  <div><img src="http://placehold.it/350x200"></div>
-  </div>
-</div>
 
-<div class="container">
-  <div id="owl-example-2" class="owl-carousel owl-theme">
-	  <div><img src="http://placehold.it/200x200"></div>
-	  <div><img src="http://placehold.it/200x200"></div>
-	  <div><img src="http://placehold.it/200x200"></div>
-	  <div><img src="http://placehold.it/200x200"></div>
-	  <div><img src="http://placehold.it/200x200"></div>
-	  <div><img src="http://placehold.it/200x200"></div>
-	  <div><img src="http://placehold.it/200x200"></div>
-  </div>
-</div>
-<div class="container">
-  <div id="owl-example-3" class="owl-carousel owl-theme">
-	  <div><img src="http://placehold.it/800x200"></div>
-	  <div><img src="http://placehold.it/800x200"></div>
-	  <div><img src="http://placehold.it/800x200"></div>
-	  <div><img src="http://placehold.it/800x200"></div>
-	  <div><img src="http://placehold.it/800x200"></div>
-	  <div><img src="http://placehold.it/800x200"></div>
-	  <div><img src="http://placehold.it/800x200"></div>
-  </div>
-</div>
-<div class="container">
-  <div id="owl-example-4" class="owl-carousel owl-theme">
-	  <div><img src="http://placehold.it/650x650"></div>
-	  <div><img src="http://placehold.it/650x650"></div>
-	  <div><img src="http://placehold.it/650x650"></div>
-	  <div><img src="http://placehold.it/650x650"></div>
-	  <div><img src="http://placehold.it/650x650"></div>
-	  <div><img src="http://placehold.it/650x650"></div>
-	  <div><img src="http://placehold.it/650x650"></div>
-  </div>
-</div>
-	
-
-<script type="text/javascript" src="assets/javascript/carousel.js"></script>
+	<script type="text/javascript" src="app.js"></script>
 </body>
 </html>
