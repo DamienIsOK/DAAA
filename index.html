@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:800" rel="stylesheet">
-	<!-- <link rel="stylesheet" href="assets/css/reset.css"> -->
+	<link rel="stylesheet" href="assets/css/reset.css">
 	<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -36,20 +36,19 @@
 <div id="icon-container">
 	<div class="container">
 		<div class="row" id="icons">
-			<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1" id="gifIcon">
-				
+			<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1" id="gifsIcon">
+				<h5>gifs</h5>
 			</div>
-			<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" id="imageIcon">
-				
+			<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" id="picsIcon">
+				<h5>pics</h5>
 			</div>
-			<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" id="videoIcon">
-				
+			<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" id="vidsIcon">
+				<h5>vids</h5>
 			</div>
 			<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" id="tumblrIcon">
-				
 			</div>
 			<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" id="wikiIcon">
-				
+				<h5>wiki</h5>
 			</div>
 		</div>
 	</div>
@@ -62,26 +61,28 @@
 </div>
 
 
-<div class="container">
-	<div class="row display-row" id="pics">
-		<div>
-			
-		</div>
+<div class="container display-row" id="picsContainer">
+	<div class="row">
+		<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1" id="pics"></div>
 	</div>
-</div>
-<div class="container">
-	<div class="row display-row hide" id="gifs">
+</div><br>
+<div class="container display-row hide" id="gifsContainer">
+	<div class="row">
+		<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1" id="gifs"></div>
 	</div>
-</div>
-<div class="container">
-	<div class="row display-row hide" id="vids">
+</div><br>
+<div class="container display-row hide" id="vidsContainer">
+	<div class="row">
+		<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1" id="vids"></div>
 	</div>
-</div>
-<div class="container">
-	<div class="row display-row hide" id="wiki">
+</div><br>
+<div class="container display-row hide" id="wikiContainer">
+	<div class="row">
+		<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1" id="wiki"></div>
 	</div>
 </div>
 
+	<script src="https://cdn.jsdelivr.net/clipboard.js/1.5.12/clipboard.min.js"></script>
 	<script src="https://code.jquery.com/jquery.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 <!-- 	<script type="text/javascript" src="assets/javascript/imgur.js"></script>

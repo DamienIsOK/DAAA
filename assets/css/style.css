@@ -80,14 +80,14 @@ span {
   margin-top: 0;
 }
 
-#gifIcon{
+#gifsIcon{
   height:66px;
   /* width:154px; */
   background-color:#E76737; 
   display:inline-block;
 }
 
-#imageIcon{
+#picsIcon{
   height:66px;
   /* width:154px; */
   background-color:#EAAF48; 
@@ -95,7 +95,7 @@ span {
   opacity: .5;
 }
 
-#videoIcon{
+#vidsIcon{
   height:66px;
   /* width:154px; */
   background-color:#168793; 
@@ -117,4 +117,12 @@ span {
   background-color:#19AA67;
   display:inline-block;
   opacity: .5;
+}
+
+#pics,
+#vids,
+#gifs,
+#wiki {
+  background-color:white;
+  opacity: .4;
 }
