@@ -1,14 +1,18 @@
 body{
   font-family: 'Open Sans', sans-serif;
+/* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to left, #ffd89b , #19547b); 
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to left, #ffd89b , #19547b); 
 }
 
-.navbar-default {
+/* .navbar-default {
   background: #2B343B;
   border:none;
   height: 55px;
   border-radius:0; 
 }
-
+ */
 ul li {
   font-size: 14px;
 }
@@ -16,17 +20,24 @@ ul li {
 .jumbotron {
   margin-top: -50px;
   margin-bottom: 0px;
-  height: 458px;
+  height: 358px;
   background: #ffd89b; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, #ffd89b , #19547b); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #ffd89b , #19547b); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to left, #ffd89b , #19547b); 
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to left, #ffd89b , #19547b); 
   text-align: center;
-  padding-top: 158px; 
-  color: white;
+  padding-top: 118px;
+  /* color: white; */
 }
 
 h1{
-  margin-bottom: 60px;
+  margin-bottom: 40px;
+  color: white;
+}
+
+span {
+  color: white;
 }
 
 .glyphicon-search {
@@ -38,18 +49,19 @@ h1{
 
 }
 
-#icon-container {
-  background-color: black;
+#search {
+  color: black;
 }
 
-#buffer {
-  /* width: 16px; */
-  height: 66px;
+#icon-container {
+  /* background-color: black; */
 }
 
 #icon-footer {
   height: 40px;
   background-color: #E76737;
+  padding-right: 10px;
+  padding-left: 10px;
 }
 
 .form-control{
@@ -58,12 +70,13 @@ h1{
 }
 
 .btn-secondary {
-  padding:10px;
+  /* padding:10px; */
+  padding: 9px;
   border-radius: 50px;
 }
 
 #icons{
-  background-color: black;
+  /* background-color: black; */
   margin-top: 0;
 }
 
@@ -72,7 +85,6 @@ h1{
   /* width:154px; */
   background-color:#E76737; 
   display:inline-block;
- 
 }
 
 #imageIcon{
@@ -80,16 +92,15 @@ h1{
   /* width:154px; */
   background-color:#EAAF48; 
   display:inline-block;
-
+  opacity: .5;
 }
-
 
 #videoIcon{
   height:66px;
   /* width:154px; */
   background-color:#168793; 
   display:inline-block;
-  
+  opacity: .5;
 }
 
 #tumblrIcon{
@@ -97,12 +108,13 @@ h1{
   /* width:154px; */
   background-color:#E97A5D; 
   display:inline-block;
-
+  opacity: .5;
 }
+
 #wikiIcon{
   height:66px;
   /* width:154px; */
   background-color:#19AA67;
   display:inline-block;
-
+  opacity: .5;
 }

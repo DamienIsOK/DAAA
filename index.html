@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:800" rel="stylesheet">
-	<link rel="stylesheet" href="assets/css/reset.css">
+	<!-- <link rel="stylesheet" href="assets/css/reset.css"> -->
 	<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -20,7 +20,8 @@
 				</div>
 				<div class="col-xs-8 col-s-4 col-md-4 col-lg-4">
 				    <div class="input-group">
-				      <input type="text" id="search" class="form-control"  placeholder="">
+				      <input type="text" id="search" class="form-control"  placeholder="search">
+				      <!-- <input type="text" id="search"> -->
 				      <span class="input-group-btn">
 				        <button class="btn btn-secondary" id="submit" type="button"><span class="glyphicon glyphicon-search"></span></button>
 				      </span>
@@ -53,30 +54,38 @@
 		</div>
 	</div>
 </div>
-<div id="icon-footer">
-	
+<div class="container">
+	<div class="row">
+		<div id="icon-footer" class="col-lg-10 col-md-10 col-sm-10 col-xs-10 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1">
+		</div>
+	</div>
 </div>
 
 
 <div class="container">
-	<div class="row" id="first-row">
+	<div class="row display-row" id="pics">
+		<div>
+			
+		</div>
 	</div>
 </div>
 <div class="container">
-	<div class="row" id="second-row">
+	<div class="row display-row hide" id="gifs">
 	</div>
 </div>
 <div class="container">
-	<div class="row" id="third-row">
+	<div class="row display-row hide" id="vids">
 	</div>
 </div>
 <div class="container">
-	<div class="row" id="fourth-row">
+	<div class="row display-row hide" id="wiki">
 	</div>
 </div>
 
 	<script src="https://code.jquery.com/jquery.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-	<script type="text/javascript" src="app.js"></script>
+<!-- 	<script type="text/javascript" src="assets/javascript/imgur.js"></script>
+	<script type="text/javascript" src="assets/javascript/giphy.js"></script>
+ -->	<script type="text/javascript" src="assets/javascript/app.js"></script>
 </body>
 </html>
