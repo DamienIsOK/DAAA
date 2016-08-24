@@ -92,7 +92,7 @@ span {
   /* width:154px; */
   background-color:#EAAF48; 
   display:inline-block;
-  opacity: .5;
+  opacity: .4;
 }
 
 #vidsIcon{
@@ -100,7 +100,7 @@ span {
   /* width:154px; */
   background-color:#168793; 
   display:inline-block;
-  opacity: .5;
+  opacity: .4;
 }
 
 #tumblrIcon{
@@ -108,7 +108,7 @@ span {
   /* width:154px; */
   background-color:#E97A5D; 
   display:inline-block;
-  opacity: .5;
+  opacity: .4;
 }
 
 #wikiIcon{
@@ -116,7 +116,7 @@ span {
   /* width:154px; */
   background-color:#19AA67;
   display:inline-block;
-  opacity: .5;
+  opacity: .4;
 }
 
 #pics,
@@ -124,5 +124,5 @@ span {
 #gifs,
 #wiki {
   background-color:white;
-  opacity: .4;
+  /* opacity: .4; */
 }
