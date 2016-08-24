@@ -114,7 +114,7 @@ $(document).ready(function() {
 				// console.log(results[i]);
 				var $imageURL = 'http://i.imgur.com/' + 
 								results[i].cover + 'm.jpg';
-				$('#pics').append('<img src="' + $imageURL + '"/>'); 
+				$('#pics').append('<div class="grid-item"><img src="' + $imageURL + '"/></div>'); 
 				// pic1_urls.push($imageURL);
 
 			}
@@ -163,7 +163,7 @@ $(document).ready(function() {
 			for (var i = 0; i < results.length; i++) {
 
 				var imgurl = results[i].images.fixed_height.url;
-				var gifImage = $('<img src ='+ imgurl + ' >' );
+				var gifImage = $('<div class="grid-item"><img src ='+ imgurl + ' ></div>' );
 				$("#gifs").append(gifImage);
 				// gif_urls.push(gifImage);
 
@@ -231,8 +231,8 @@ $(document).ready(function() {
 					// 		console.log(tumblrImage);
 
 					// Appending the results
-					$("#pics").append("<img src=" + 
-						tumblrImage + ">" 
+					$("#pics").append("<div class='grid-item'><img src=" + 
+						tumblrImage + "></div>" 
 						 //+ "<br>" + tumblrUrl + "<br>"
 						 )
 					// 				.append(b)
@@ -249,8 +249,8 @@ $(document).ready(function() {
 					// 		.attr("data-clipboard-text", tumblrVideo);
 					// 		console.log(tumblrVideo);
 
-					$("#vids").append("<video width='320' height='240' controls>"+
-						" <source src= " + tumblrVideo + "> </video>" 
+					$("#vids").append("<div class='grid-item'><video width='320' height='240' controls>"+
+						" <source src= " + tumblrVideo + "> </video></div>" 
 						 // + "<br>" + tumblrUrl + "<br>"
 						 )
 					// 				.append(b)
@@ -265,8 +265,8 @@ $(document).ready(function() {
 
 				} else if(tumblrType == "video" && tumblrVideoType == "youtube") {
 
-					$("#vids").append("<video width='320' height='240' controls>"+
-						" <source src= " + tumblrObject.response[i].permalink_url + "> </video>" 
+					$("#vids").append("<div class='grid-item'><video width='320' height='240' controls>"+
+						" <source src= " + tumblrObject.response[i].permalink_url + "> </video></div>" 
 						 // + "<br>" + tumblrUrl + "<br>"
 						 )
 					// 				.append(b)
