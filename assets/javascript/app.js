@@ -14,15 +14,21 @@ $(document).ready(function() {
 	var clipboard = new Clipboard('.btn');
 
 
-	$('#gifsIcon').on('click', function() {
+	// external js: masonry.pkgd.js, imagesloaded.pkgd.js
 
-		$('.display-row').addClass('hide');
-		$('#gifsContainer').removeClass('hide');
-		$('#icon-footer').css('background-color', '#E76737');
-		$('.icons').css('opacity', '.4');
-		$(this).css('opacity', '1');
+	// init Masonry after all images have loaded
+	var $grid = $('.grid').imagesLoaded( function() {
+
+	  $grid.masonry({
+
+	    itemSelector: '.grid-item',
+	    percentPosition: true,
+	    columnWidth: '.grid-sizer'
+
+	  }); 
 
 	});
+
 
 
 	$('#picsIcon').on('click', function() {
@@ -30,6 +36,17 @@ $(document).ready(function() {
 		$('.display-row').addClass('hide');
 		$('#picsContainer').removeClass('hide');
 		$('#icon-footer').css('background-color', '#EAAF48');
+		$('.icons').css('opacity', '.4');
+		$(this).css('opacity', '1');
+
+	});
+
+
+	$('#gifsIcon').on('click', function() {
+
+		$('.display-row').addClass('hide');
+		$('#gifsContainer').removeClass('hide');
+		$('#icon-footer').css('background-color', '#E76737');
 		$('.icons').css('opacity', '.4');
 		$(this).css('opacity', '1');
 
@@ -156,6 +173,8 @@ $(document).ready(function() {
 
 		});
 
+	    return false;
+
 
 	});
 
@@ -212,7 +231,7 @@ $(document).ready(function() {
 					// 		console.log(tumblrImage);
 
 					// Appending the results
-					$("#resultDiv").append("<img src=" + 
+					$("#pics").append("<img src=" + 
 						tumblrImage + ">" 
 						 //+ "<br>" + tumblrUrl + "<br>"
 						 )
@@ -240,9 +259,21 @@ $(document).ready(function() {
 
 					// vid_urls.push(tumblrVideo);
 
+					console.log('tumblr video!');
 
 
-				} 
+
+				} else if(tumblrType == "video" && tumblrVideoType == "youtube") {
+
+					$("#vids").append("<video width='320' height='240' controls>"+
+						" <source src= " + tumblrObject.response[i].permalink_url + "> </video>" 
+						 // + "<br>" + tumblrUrl + "<br>"
+						 )
+					// 				.append(b)
+									;
+
+
+				}
 
 			}
 
@@ -266,9 +297,11 @@ $(document).ready(function() {
 
 		$('#vids').html('');
 
+		var key = 'AIzaSyASwJE5ny3b5D_MMihhX8TUgPsucMsSI7E';
 	    var searchTerm = $('#search').val().trim();
 	    var url = 'https://www.googleapis.com/youtube/v3/search?q='+
-	            searchTerm+'&part=snippet&key=AIzaSyASwJE5ny3b5D_MMihhX8TUgPsucMsSI7E';
+	            searchTerm + '&part=snippet&key=' + key +
+	            '&maxResults=20';
 
 	    $.ajax({
 
@@ -285,7 +318,7 @@ $(document).ready(function() {
 
 	                $('#vids').append('<iframe src="https://www.youtube.com/embed/' +
 	                                            result.items[i].id.videoId +
-	                                            '" width="350" height="260"></iframe>')
+	                                            '" width="320" height="240"></iframe>')
 	                
 
 	                // return 0;
@@ -298,7 +331,10 @@ $(document).ready(function() {
 
 	    // q ='';
 
+	    return false;
+
 	})
+
 
 
 });

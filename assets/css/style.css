@@ -31,9 +31,10 @@ ul li {
   /* color: white; */
 }
 
-h1{
+#logo h1{
   margin-bottom: 40px;
   color: white;
+  font-size: 63px;
 }
 
 span {
@@ -123,6 +124,39 @@ span {
 #vids,
 #gifs,
 #wiki {
-  background-color:white;
+  /* background-color:white; */
   /* opacity: .4; */
+}
+
+/* * { box-sizing: border-box; } */
+
+/* force scrollbar */
+/* html { overflow-y: scroll; } */
+
+/* body { font-family: sans-serif; } */
+
+/* ---- grid ---- */
+
+/* clear fix */
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+/* ---- .grid-item ---- */
+
+.grid-sizer,
+.grid-item {
+  width:25%;
+/*   width: 33.333%; */
+}
+
+.grid-item {
+  float: left;
+}
+
+.grid-item img {
+  display: block;
+  width: 100%;
 }

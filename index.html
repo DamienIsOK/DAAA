@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Layout</title>
+	<title>replyHUB</title>
 	<!-- Latest compiled and minified CSS & JS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
@@ -14,11 +14,13 @@
 	
 	<div class="jumbotron">
 		<div class="container">
-			<h1>reply<span id="hubFont">HUB</span></h1>
+			<div id="logo">
+				<h1>reply<span id="hubFont">HUB</span></h1>
+			</div>
 			<div class="row">
-				<div class="col-xs-2 col-s-4 col-md-4 col-lg-4">	
+				<div class="col-xs-2 col-sm-4 col-md-4 col-lg-4">	
 				</div>
-				<div class="col-xs-8 col-s-4 col-md-4 col-lg-4">
+				<div class="col-xs-8 col-sm-4 col-md-4 col-lg-4">
 				    <div class="input-group">
 				      <input type="text" id="search" class="form-control"  placeholder="search">
 				      <!-- <input type="text" id="search"> -->
@@ -36,11 +38,11 @@
 <div id="icon-container">
 	<div class="container">
 		<div class="row" id="icons">
-			<div class="icons col-lg-2 col-md-2 col-sm-2 col-xs-2 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1" id="gifsIcon">
-				<h5>gifs</h5>
-			</div>
-			<div class="icons col-lg-2 col-md-2 col-sm-2 col-xs-2" id="picsIcon">
+			<div class="icons col-lg-2 col-md-2 col-sm-2 col-xs-2 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1" id="picsIcon">
 				<h5>pics</h5>
+			</div>
+			<div class="icons col-lg-2 col-md-2 col-sm-2 col-xs-2" id="gifsIcon">
+				<h5>gifs</h5>
 			</div>
 			<div class="icons col-lg-2 col-md-2 col-sm-2 col-xs-2" id="vidsIcon">
 				<h5>vids</h5>
@@ -61,30 +63,32 @@
 </div>
  -->
 
-<div class="container display-row hide" id="gifsContainer">
+<div class="container display-row hide" id="picsContainer">
 	<div class="row">
-		<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1" id="gifs"></div>
+		<div class="grid col-lg-10 col-md-10 col-sm-10 col-xs-10 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1" id="pics"></div>
 	</div>
 </div>
-<div class="container display-row" id="picsContainer">
+<div class="container display-row" id="gifsContainer">
 	<div class="row">
-		<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1" id="pics"></div>
+		<div class="grid col-lg-10 col-md-10 col-sm-10 col-xs-10 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1" id="gifs"></div>
 	</div>
 </div>
 <div class="container display-row hide" id="vidsContainer">
 	<div class="row">
-		<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1" id="vids"></div>
+		<div class="grid col-lg-10 col-md-10 col-sm-10 col-xs-10 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1" id="vids"></div>
 	</div>
 </div>
 <div class="container display-row hide" id="wikiContainer">
 	<div class="row">
-		<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1" id="wiki"></div>
+		<div class="grid col-lg-10 col-md-10 col-sm-10 col-xs-10 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1" id="wiki"></div>
 	</div>
 </div>
 
 	<script src="https://cdn.jsdelivr.net/clipboard.js/1.5.12/clipboard.min.js"></script>
 	<script src="https://code.jquery.com/jquery.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	<script src="https://npmcdn.com/masonry-layout@4.1.1/dist/masonry.pkgd.min.js"></script>
+	<<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.0/imagesloaded.pkgd.min.js"></script>
+	<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> -->
 <!-- 	<script type="text/javascript" src="assets/javascript/imgur.js"></script>
 	<script type="text/javascript" src="assets/javascript/giphy.js"></script>
  -->	<script type="text/javascript" src="assets/javascript/app.js"></script>
