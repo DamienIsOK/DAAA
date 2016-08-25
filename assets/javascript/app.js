@@ -28,9 +28,9 @@ $(document).ready(function() {
 	}); 
 
 	// layout Isotope after each image loads
-	$grid.imagesLoaded().progress( function() {
-		$grid.isotope('layout');
-	});
+	// $grid.imagesLoaded().progress( function() {
+	// 	$grid.isotope('layout');
+	// });
 
 
 
@@ -125,8 +125,13 @@ $(document).ready(function() {
 
 		 	// console.log('pic_urls.length '+pic_urls.length);
 
+	 		$grid.imagesLoaded().progress( function() {
+				$grid.isotope('layout');
+			});
+
+
 		})
-	 	
+
 		//------
 
 		return false;
@@ -183,6 +188,11 @@ $(document).ready(function() {
 				// gif_urls.push(gifImage);
 
 			}
+
+	 		$grid.imagesLoaded().progress( function() {
+				$grid.isotope('layout');
+			});
+
 
 		});
 
@@ -292,6 +302,11 @@ $(document).ready(function() {
 				$("#vids").append("<div class='grid-item'><video controls>"+
 								" <source src= " + vid2_urls[i] + "> </video></div>" );
 			}
+
+	 		$grid.imagesLoaded().progress( function() {
+				$grid.isotope('layout');
+			});
+
 
 		})
 
