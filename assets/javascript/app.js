@@ -11,6 +11,25 @@ $(document).ready(function() {
 	var vid2_urls = [];
 	var vid3_urls = [];
 	var wiki_urls = [];
+	var test_urls = [
+		'https://3.bp.blogspot.com/-W__wiaHUjwI/Vt3Grd8df0I/AAAAAAAAA78/7xqUNj8ujtY/s1600/image02.png',
+		'http://www.jqueryscript.net/images/Simplest-Responsive-jQuery-Image-Lightbox-Plugin-simple-lightbox.jpg',
+		'http://i.dailymail.co.uk/i/pix/2016/04/13/00/331D901800000578-3536787-image-a-11_1460503122350.jpg',
+		'http://www.w3schools.com/css/trolltunga.jpg',
+		'https://cdn.eso.org/images/thumb300y/eso1119b.jpg',
+		'http://i.amz.mshcdn.com/Pp-86XPbUlVRkvX2sj1JNKduDRc=/fit-in/1200x9600/https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com%2Fuploads%2Fcard%2Fimage%2F176275%2FGettyImages-587925244.jpg',
+		'https://sky.easypano.com/EPSUpload2/Pano/2016/04-21/06/635968169644343116/560_315.jpg',
+		'http://i.dailymail.co.uk/i/pix/2015/12/31/22/2FB5D51500000578-3380690-image-a-5_1451601920278.jpg',
+		'https://static01.nyt.com/images/2016/08/22/insider/22insider-caption-image/22insider-caption-image-thumbStandard.jpg',
+		'http://www.jqueryscript.net/images/Simplest-Responsive-jQuery-Image-Lightbox-Plugin-simple-lightbox.jpg',
+		'http://i.dailymail.co.uk/i/pix/2016/04/13/00/331D901800000578-3536787-image-a-11_1460503122350.jpg',
+		'http://www.w3schools.com/css/trolltunga.jpg',
+		'https://cdn.eso.org/images/thumb300y/eso1119b.jpg',
+		'http://i.amz.mshcdn.com/Pp-86XPbUlVRkvX2sj1JNKduDRc=/fit-in/1200x9600/https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com%2Fuploads%2Fcard%2Fimage%2F176275%2FGettyImages-587925244.jpg',
+		'https://sky.easypano.com/EPSUpload2/Pano/2016/04-21/06/635968169644343116/560_315.jpg',
+		'http://i.dailymail.co.uk/i/pix/2015/12/31/22/2FB5D51500000578-3380690-image-a-5_1451601920278.jpg',
+		'https://static01.nyt.com/images/2016/08/22/insider/22insider-caption-image/22insider-caption-image-thumbStandard.jpg'
+	];
 
 	// Copy to clipboard function using clipboard.js library
 	var clipboard = new Clipboard('.btn');
@@ -248,7 +267,7 @@ $(document).ready(function() {
 				// Instructions on how to handle photos
 				if(tumblrType == "photo"){
 
-					var tumblrImage = tumblrObject.response[i].photos[0].alt_sizes[3].url;
+					// var tumblrImage = tumblrObject.response[i].photos[0].alt_sizes[3].url;
 					// var b = $('<input type="button" value="Copy link"/>')
 					// var b = $('<img src="assets/images/copy.png" />')
 					// 		.addClass("btn")
@@ -260,7 +279,7 @@ $(document).ready(function() {
 					// 	tumblrImage + "></div>" );
 					// $("#searchInput").val("");
 
-					pic2_urls.push(tumblrImage);
+					// pic2_urls.push(tumblrImage);
 
 				// Instructions on how to handle Tumblr videos
 				} else if(tumblrType == "video" && tumblrVideoType == "tumblr") {
@@ -373,7 +392,25 @@ $(document).ready(function() {
 
 	    return false;
 
-	})
+	});
+
+	$('#submit').on('click', function() {
+
+		$('#wiki').html('');
+
+		for(var i = 0; i < test_urls.length; i++) {
+
+			$('#wiki').append('<div class="grid-item"><img src="'
+					+test_urls[i] + '"></div>');
+
+		}
+
+ 		$grid.imagesLoaded().progress( function() {
+			$grid.isotope('layout');
+		});
+
+
+	});
 
 
 
