@@ -16,18 +16,20 @@ $(document).ready(function() {
 
 	// external js: masonry.pkgd.js, imagesloaded.pkgd.js
 
-	// init Masonry after all images have loaded
-	var $grid = $('.grid').imagesLoaded( function() {
-
-	  $grid.masonry({
-
+	// init Isotope
+	var $grid = $('.grid').isotope({
 	    itemSelector: '.grid-item',
 	    percentPosition: true,
-	    columnWidth: '.grid-sizer'
+	    masonry: {
+		    columnWidth: '.grid-sizer'
+	    }
+	}); 
 
-	  }); 
-
+	// layout Isotope after each image loads
+	$grid.imagesLoaded().progress( function() {
+		$grid.isotope('layout');
 	});
+
 
 
 
