@@ -7,7 +7,9 @@ $(document).ready(function() {
 	var gif_urls = [];
 	var pic1_urls = [];
 	var pic2_urls = [];
-	var vid_urls = [];
+	var vid1_urls = [];
+	var vid2_urls = [];
+	var vid3_urls = [];
 	var wiki_urls = [];
 
 	// Copy to clipboard function using clipboard.js library
@@ -38,7 +40,7 @@ $(document).ready(function() {
 		$('.display-row').addClass('hide');
 		$('#picsContainer').removeClass('hide');
 		$('#icon-footer').css('background-color', '#EAAF48');
-		$('.icons').css('opacity', '.4');
+		$('.icons').css('opacity', '.8');
 		$(this).css('opacity', '1');
 
 	});
@@ -49,7 +51,7 @@ $(document).ready(function() {
 		$('.display-row').addClass('hide');
 		$('#gifsContainer').removeClass('hide');
 		$('#icon-footer').css('background-color', '#E76737');
-		$('.icons').css('opacity', '.4');
+		$('.icons').css('opacity', '.8');
 		$(this).css('opacity', '1');
 
 	});
@@ -60,7 +62,7 @@ $(document).ready(function() {
 		$('.display-row').addClass('hide');
 		$('#vidsContainer').removeClass('hide');
 		$('#icon-footer').css('background-color', '#168793');
-		$('.icons').css('opacity', '.4');
+		$('.icons').css('opacity', '.8');
 		$(this).css('opacity', '1');
 
 	});
@@ -71,7 +73,7 @@ $(document).ready(function() {
 		$('.display-row').addClass('hide');
 		$('#wikiContainer').removeClass('hide');
 		$('#icon-footer').css('background-color', '#19AA67');
-		$('.icons').css('opacity', '.4');
+		$('.icons').css('opacity', '.8');
 		$(this).css('opacity', '1');
 
 	});
@@ -116,8 +118,8 @@ $(document).ready(function() {
 				// console.log(results[i]);
 				var $imageURL = 'http://i.imgur.com/' + 
 								results[i].cover + 'm.jpg';
-				$('#pics').append('<div class="grid-item"><img src="' + $imageURL + '"/></div>'); 
-				// pic1_urls.push($imageURL);
+				// $('#pics').append('<div class="grid-item"><img src="' + $imageURL + '"/></div>'); 
+				pic1_urls.push($imageURL);
 
 			}
 
@@ -160,20 +162,31 @@ $(document).ready(function() {
 
 		}).done(function(response) {
 
-			var results = response.data;
+			var results = response.data,
+				imgurl,
+				gifImage;
 
 			for (var i = 0; i < results.length; i++) {
 
-				var imgurl = results[i].images.fixed_height.url;
-				var gifImage = $('<div class="grid-item"><img src ='+ imgurl + ' ></div>' );
-				$("#gifs").append(gifImage);
-				// gif_urls.push(gifImage);
+				imgurl = results[i].images.fixed_height.url;
+				gifImage = $('<div class="grid-item"><img src ='+ imgurl + ' ></div>' );
+				// $("#gifs").append(gifImage);
+				gif_urls.push(gifImage);
 
 			}
 
 			console.log('gif_urls.length '+gif_urls.length);
 
+			for (var i = 0; i < gif_urls.length; i++) {
+
+				$("#gifs").append(gif_urls[i]);
+				// gif_urls.push(gifImage);
+
+			}
+
 		});
+
+
 
 	    return false;
 
@@ -233,15 +246,11 @@ $(document).ready(function() {
 					// 		console.log(tumblrImage);
 
 					// Appending the results
-					$("#pics").append("<div class='grid-item'><img src=" + 
-						tumblrImage + "></div>" 
-						 //+ "<br>" + tumblrUrl + "<br>"
-						 )
-					// 				.append(b)
-									;
+					// $("#pics").append("<div class='grid-item'><img src=" + 
+					// 	tumblrImage + "></div>" );
 					// $("#searchInput").val("");
 
-					// pic2_urls.push(tumblrImage);
+					pic2_urls.push(tumblrImage);
 
 				// Instructions on how to handle Tumblr videos
 				} else if(tumblrType == "video" && tumblrVideoType == "tumblr") {
@@ -251,15 +260,11 @@ $(document).ready(function() {
 					// 		.attr("data-clipboard-text", tumblrVideo);
 					// 		console.log(tumblrVideo);
 
-					$("#vids").append("<div class='grid-item'><video width='320' height='240' controls>"+
-						" <source src= " + tumblrVideo + "> </video></div>" 
-						 // + "<br>" + tumblrUrl + "<br>"
-						 )
-					// 				.append(b)
-									;
+					// $("#vids").append("<div class='grid-item'><video controls>"+
+					// 	" <source src= " + tumblrVideo + "> </video></div>" );
 					// $("#searchInput").val("");
 
-					// vid_urls.push(tumblrVideo);
+					vid1_urls.push(tumblrVideo);
 
 					console.log('tumblr video!');
 
@@ -267,16 +272,25 @@ $(document).ready(function() {
 
 				} else if(tumblrType == "video" && tumblrVideoType == "youtube") {
 
-					$("#vids").append("<div class='grid-item'><video width='320' height='240' controls>"+
-						" <source src= " + tumblrObject.response[i].permalink_url + "> </video></div>" 
-						 // + "<br>" + tumblrUrl + "<br>"
-						 )
-					// 				.append(b)
-									;
-
+					vid2_urls.push(tumblrObject.response[i].permalink_url);
 
 				}
 
+			}
+
+			for(var i = 0; i < pic2_urls.length; i++) {
+				$("#pics").append("<div class='grid-item'><img src=" + 
+					pic2_urls[i] + "></div>" );
+			}
+
+			for(var i = 0; i < vid1_urls.length; i++) {
+				$("#vids").append("<div class='grid-item'><video controls>"+
+								" <source src= " + vid1_urls[i] + "> </video></div>" );
+			}
+
+			for(var i = 0; i < vid2_urls.length; i++) {
+				$("#vids").append("<div class='grid-item'><video controls>"+
+								" <source src= " + vid2_urls[i] + "> </video></div>" );
 			}
 
 		})
@@ -318,10 +332,11 @@ $(document).ready(function() {
 
 	            if(result.items[i].id.kind === 'youtube#video') {
 
-	                $('#vids').append('<iframe src="https://www.youtube.com/embed/' +
-	                                            result.items[i].id.videoId +
-	                                            '" width="320" height="240"></iframe>')
-	                
+				// $('#vids').append('<iframe src="https://www.youtube.com/embed/' +
+	                //                             result.items[i].id.videoId +
+	                //                             '" width="320" height="240"></iframe>')
+	                vid3_urls.push('https://www.youtube.com/embed/' +
+	                                            result.items[i].id.videoId);
 
 	                // return 0;
 	            }
@@ -329,6 +344,14 @@ $(document).ready(function() {
 
 	        console.log('# of youtube results '+result);
 
+	        for(var i = 0; i < vid3_urls.length; i++) {
+
+				$('#vids').append('<iframe src="'+vid3_urls[i]+
+					'"></iframe>');
+				// $('#vids').append('<div class="grid-item"><video controls>"'+
+				// 				" <source src= " + vid2_urls[i] + "> </video></div>");
+
+	        }
 	    });
 
 	    // q ='';

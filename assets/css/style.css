@@ -66,7 +66,7 @@ body{
   border-radius: 50px;
 }
 
-#icons{
+#icons-container{
   background-color: #2b2b2b;
   margin-top: 0;
   text-align: center;
@@ -88,28 +88,28 @@ body{
   height:66px;
   background-color:#EAAF48; 
   display:inline-block;
-  opacity: .4;
+  opacity: .8;
 }
 
 #vidsIcon{
   height:66px;
   background-color:#168793; 
   display:inline-block;
-  opacity: .4;
+  opacity: .8;
 }
 
 #tumblrIcon{
   height:66px;
   background-color:#E97A5D; 
   display:inline-block;
-  opacity: .4;
+  opacity: .8;
 }
 
 #wikiIcon{
   height:66px;
   background-color:#19AA67;
   display:inline-block;
-  opacity: .4;
+  opacity: .8;
 }
 
 #pics,
@@ -127,12 +127,32 @@ body{
 
 /* body { font-family: sans-serif; } */
 
+video,
+iframe {
+  width: 315px;
+  height: 200px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 1190px) {
+  video,
+  iframe {
+    width: 259px;
+    height: 194.25px;
+  }
+}
+
 /* ---- grid ---- */
 
 /* #pics {
   width: 80%;
 }
  */
+
+.grid {
+  display: inline-block;
+}
+
 /* clear fix */
 .grid:after {
   content: '';
@@ -154,7 +174,7 @@ body{
 }
 
 .grid-item img {
-  display: block;
-  /* display: inline; */
+  /* display: block; */
+  display: inline;
   width: 100%;
 }
