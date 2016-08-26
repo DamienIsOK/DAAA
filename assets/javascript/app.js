@@ -350,6 +350,12 @@ $(document).ready(function() {
 
 
 	$("#submit").on('click', function(){
+// FORM VALIDATION. I DON'T LIKE THIS. SEE IF I CAN PUT INTO A FUNCTION -- DAMIEN
+		var searchValue = $("#search").val();
+		if(searchValue === ""){
+			$(".input-group").effect("shake", {times: 3}, 500);
+        	return false;
+		}
 
 		$('#vids').html('');
 
