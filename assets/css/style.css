@@ -149,6 +149,15 @@ iframe {
 }
  */
 
+#copy {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  background-color: black;
+  color: white;
+  opacity: .6;
+}
+
 .grid {
   display: inline-block;
 }
@@ -165,6 +174,7 @@ iframe {
 .grid-sizer,
 .grid-item {
   width:25%;
+  overflow: auto;
   /* width: 10%; */
 /*   width: 33.333%; */
 }
