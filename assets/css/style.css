@@ -158,8 +158,8 @@ iframe {
   color: white;
   opacity: .6;
   z-index: 2;
-  margin-top: -30px;
-  margin-left: 76px;
+  margin-top: -32px;
+  margin-left: 90px;
   padding: 2px 5px 5px 5px;
   border-radius: 5px;
 }
@@ -170,8 +170,8 @@ iframe {
   color: white;
   opacity: .6;
   z-index: 2;
-  margin-top: 167px;
-  margin-left: -163px;
+  margin-top: 169px;
+  margin-left: -145px;
   border-radius: 5px;
   display: inline;
   padding: 2px 5px 5px 5px;
@@ -183,6 +183,7 @@ iframe {
 
 .grid {
   display: inline-block;
+  margin-left: 1%;
 }
 
 /* clear fix */
@@ -209,5 +210,5 @@ iframe {
 .grid-item img {
   /* display: block; */
   display: inline;
-  width: 100%;
+  width: 97%;
 }

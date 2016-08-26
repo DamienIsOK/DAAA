@@ -3,7 +3,7 @@
 $(document).ready(function() {
 	
 
-	var displayed = undefined;
+	// var displayed = undefined;
 	var gif_urls = [];
 	var pic1_urls = [];
 	var pic2_urls = [];
@@ -11,6 +11,10 @@ $(document).ready(function() {
 	var vid2_urls = [];
 	var vid3_urls = [];
 	var wiki_urls = [];
+
+
+
+	// test existing url with Isotope for masonry image layout
 	var test_urls = [
 		'https://3.bp.blogspot.com/-W__wiaHUjwI/Vt3Grd8df0I/AAAAAAAAA78/7xqUNj8ujtY/s1600/image02.png',
 		'http://www.jqueryscript.net/images/Simplest-Responsive-jQuery-Image-Lightbox-Plugin-simple-lightbox.jpg',
@@ -31,13 +35,32 @@ $(document).ready(function() {
 		'https://static01.nyt.com/images/2016/08/22/insider/22insider-caption-image/22insider-caption-image-thumbStandard.jpg'
 	];
 
+
+
+	// Imgur client ID
+	var imgur_clientID = '6441b815d2612cc';
+
+
+
 	// Copy to clipboard function using clipboard.js library
 	var clipboard = new Clipboard('.btn');
 
 
-	// external js: masonry.pkgd.js, imagesloaded.pkgd.js
 
-	// init Isotope
+	// Initialize Firebase
+	var config = {
+		apiKey: "AIzaSyBwdhl2V_gyP4QRxVsv9vvf7MiR8StxSTk",
+		authDomain: "replyhub-32280.firebaseapp.com",
+		databaseURL: "https://replyhub-32280.firebaseio.com",
+		storageBucket: "",
+	};
+	
+	firebase.initializeApp(config);
+
+
+
+	// external js: isotope.pkgd.js, imagesloaded.pkgd.js
+	// Initialize Isotope
 	var $grid = $('.grid').isotope({
 	    itemSelector: '.grid-item',
 	    percentPosition: true,
@@ -52,6 +75,39 @@ $(document).ready(function() {
 	// });
 
 
+
+	// Data validation. Form cannot be empty or less than 2 characters
+	function formValidation() {
+
+		var x = document.forms["searchForm"]["searchField"].value;
+
+		if (x == "" || x.length < 2) {
+			$("#search").effect("shake", {times: 3}, 500);
+			return false;
+	    }
+
+	}
+
+	// hide placeholder on 'focus'
+	$('#search').on('focus', function() {
+
+		if(this.placeholder == 'Search') {
+			this.placeholder = '';
+		}
+	// show placeholder on 'blur'
+	}).on('blur', function() {
+
+		if(this.placeholder == '') {
+			this.placeholder = 'Search';
+		}
+
+	});
+
+
+
+	//=================================================================
+	//	data-type tab events
+	//=================================================================
 
 
 	$('#picsIcon').on('click', function() {
@@ -99,14 +155,18 @@ $(document).ready(function() {
 
 
 
-//=================================================================
-//	imgur code
-//=================================================================
-
-
-	var clientID = '6441b815d2612cc';
-
 	$('#submit').on('click', function(){
+
+
+		// Run the form validation
+		formValidation();
+
+
+	//=================================================================
+	//	imgur code
+	//=================================================================
+
+
 
 		$('#pics').html('');
 
@@ -121,7 +181,7 @@ $(document).ready(function() {
 			url: img_queryURL,
 			method: 'GET',
 			headers: {
-        	Authorization: 'Client-ID ' + clientID
+        	Authorization: 'Client-ID ' + imgur_clientID
       		}
 
 		})
@@ -159,22 +219,22 @@ $(document).ready(function() {
 
 		//------
 
-		return false;
+		// return false;
 
 
-	});
-
-
-
+	// });
 
 
 
-//=================================================================
-//	giphy code
-//=================================================================
 
 
-	$("#submit").on("click", function(){
+
+	//=================================================================
+	//	giphy code
+	//=================================================================
+
+
+	// $("#submit").on("click", function(){
 
 		$('#gifs').html('');
 
@@ -223,23 +283,21 @@ $(document).ready(function() {
 
 
 
-	    return false;
+	    // return false;
 
 
-	});
+	// });
 
 
 
 
 
-//=================================================================
-//	tumblr code
-//=================================================================
+	//=================================================================
+	//	tumblr code
+	//=================================================================
 
 
-	$("#submit").on('click', function(){
-		// Run the form validation
-		// formValidation();
+	// $("#submit").on('click', function(){
 
 		$('#pics').html('');
 
@@ -336,26 +394,24 @@ $(document).ready(function() {
 		})
 
 
-		return false;
+		// return false;
 
 
-	});
+	// });
 
 
 
 
-//=================================================================
-//	youtube code
-//=================================================================
+	//=================================================================
+	//	youtube code
+	//=================================================================
 
 
-	$("#submit").on('click', function(){
-// FORM VALIDATION. I DON'T LIKE THIS. SEE IF I CAN PUT INTO A FUNCTION -- DAMIEN
-		var searchValue = $("#search").val();
-		if(searchValue === ""){
-			$(".input-group").effect("shake", {times: 3}, 500);
-        	return false;
-		}
+<<<<<<< HEAD
+
+=======
+	// $("#submit").on('click', function(){
+>>>>>>> 826a92c4f293e4974b3b4acd93fef148f22f2b5c
 
 		$('#vids').html('');
 
@@ -382,15 +438,15 @@ $(document).ready(function() {
 	                //                             result.items[i].id.videoId +
 	                //                             '" width="320" height="240"></iframe>')
 	                vid3_urls.push('https://www.youtube.com/embed/' +
-	                                            result.items[i].id.videoId);
+									result.items[i].id.videoId);
 
 	                // return 0;
 	            }
 	        }
 
-	        console.log('# of youtube results '+result);
+	        console.log(result);
 
-	        for(var i = 0; i < vid3_urls.length-10; i++) {
+	        for(var i = 0; i < vid3_urls.length; i++) {
 
 				$('#vids').append('<div class="vid-wrap"><iframe src="'+vid3_urls[i]+
 					'"></iframe><h4 id="vid-copy">copy to clipboard</h4></div>');
@@ -402,11 +458,10 @@ $(document).ready(function() {
 
 	    // q ='';
 
-	    return false;
 
-	});
+	// });
 
-	$('#submit').on('click', function() {
+	// $('#submit').on('click', function() {
 
 		$('#wiki').html('');
 
@@ -420,6 +475,9 @@ $(document).ready(function() {
  		$grid.imagesLoaded().progress( function() {
 			$grid.isotope('layout');
 		});
+
+
+		return false;
 
 
 	});
