@@ -30,12 +30,13 @@ $(document).ready(function() {
 		'http://i.dailymail.co.uk/i/pix/2015/12/31/22/2FB5D51500000578-3380690-image-a-5_1451601920278.jpg',
 		'https://static01.nyt.com/images/2016/08/22/insider/22insider-caption-image/22insider-caption-image-thumbStandard.jpg'
 	];
+	var imgur_clientID = '6441b815d2612cc';
 
 	// Copy to clipboard function using clipboard.js library
 	var clipboard = new Clipboard('.btn');
 
 
-	// external js: masonry.pkgd.js, imagesloaded.pkgd.js
+	// external js: isotope.pkgd.js, imagesloaded.pkgd.js
 
 	// init Isotope
 	var $grid = $('.grid').isotope({
@@ -51,6 +52,23 @@ $(document).ready(function() {
 	// 	$grid.isotope('layout');
 	// });
 
+	// Data validation. Form cannot be empty or less than 2 characters
+	function formValidation() {
+		var x = document.forms["searchForm"]["searchField"].value;
+		if (x == "" || x.length < 2) {
+			$("#search").effect("shake", {times: 3}, 500);
+			return false;
+	    }
+	}
+
+
+	$('#searchInput').on('focus', function() {
+
+		if(this.placeholder == 'Search') {
+			this.placeholder = '';
+		}
+
+	});
 
 
 
@@ -99,14 +117,20 @@ $(document).ready(function() {
 
 
 
-//=================================================================
-//	imgur code
-//=================================================================
-
-
-	var clientID = '6441b815d2612cc';
 
 	$('#submit').on('click', function(){
+
+
+		// Run the form validation
+		formValidation();
+
+
+	//=================================================================
+	//	imgur code
+	//=================================================================
+
+
+
 
 		$('#pics').html('');
 
@@ -121,7 +145,7 @@ $(document).ready(function() {
 			url: img_queryURL,
 			method: 'GET',
 			headers: {
-        	Authorization: 'Client-ID ' + clientID
+        	Authorization: 'Client-ID ' + imgur_clientID
       		}
 
 		})
@@ -159,22 +183,22 @@ $(document).ready(function() {
 
 		//------
 
-		return false;
+		// return false;
 
 
-	});
-
-
-
+	// });
 
 
 
-//=================================================================
-//	giphy code
-//=================================================================
 
 
-	$("#submit").on("click", function(){
+
+	//=================================================================
+	//	giphy code
+	//=================================================================
+
+
+	// $("#submit").on("click", function(){
 
 		$('#gifs').html('');
 
@@ -223,23 +247,21 @@ $(document).ready(function() {
 
 
 
-	    return false;
+	    // return false;
 
 
-	});
+	// });
 
 
 
 
 
-//=================================================================
-//	tumblr code
-//=================================================================
+	//=================================================================
+	//	tumblr code
+	//=================================================================
 
 
-	$("#submit").on('click', function(){
-		// Run the form validation
-		// formValidation();
+	// $("#submit").on('click', function(){
 
 		$('#pics').html('');
 
@@ -336,20 +358,20 @@ $(document).ready(function() {
 		})
 
 
-		return false;
+		// return false;
 
 
-	});
+	// });
 
 
 
 
-//=================================================================
-//	youtube code
-//=================================================================
+	//=================================================================
+	//	youtube code
+	//=================================================================
 
 
-	$("#submit").on('click', function(){
+	// $("#submit").on('click', function(){
 
 		$('#vids').html('');
 
@@ -376,15 +398,15 @@ $(document).ready(function() {
 	                //                             result.items[i].id.videoId +
 	                //                             '" width="320" height="240"></iframe>')
 	                vid3_urls.push('https://www.youtube.com/embed/' +
-	                                            result.items[i].id.videoId);
+									result.items[i].id.videoId);
 
 	                // return 0;
 	            }
 	        }
 
-	        console.log('# of youtube results '+result);
+	        console.log(result);
 
-	        for(var i = 0; i < vid3_urls.length-10; i++) {
+	        for(var i = 0; i < vid3_urls.length; i++) {
 
 				$('#vids').append('<div class="vid-wrap"><iframe src="'+vid3_urls[i]+
 					'"></iframe><h4 id="vid-copy">copy to clipboard</h4></div>');
@@ -396,11 +418,10 @@ $(document).ready(function() {
 
 	    // q ='';
 
-	    return false;
 
-	});
+	// });
 
-	$('#submit').on('click', function() {
+	// $('#submit').on('click', function() {
 
 		$('#wiki').html('');
 
@@ -414,6 +435,9 @@ $(document).ready(function() {
  		$grid.imagesLoaded().progress( function() {
 			$grid.isotope('layout');
 		});
+
+
+		return false;
 
 
 	});
