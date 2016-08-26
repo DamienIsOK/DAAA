@@ -75,6 +75,7 @@ body{
 .iconImage{
   margin-top: 4px;
   padding-top: 10px;
+  padding-bottom: 2px;
   height: 50px; 
 }
 
@@ -150,12 +151,34 @@ iframe {
  */
 
 #copy {
-  display: flex;
+/*   display: flex;
   align-items: center;
+ */  position: absolute;
+  background-color: black;
+  color: white;
+  opacity: .6;
+  z-index: 2;
+  margin-top: -30px;
+  margin-left: 76px;
+  padding: 2px 5px 5px 5px;
+  border-radius: 5px;
+}
+
+#vid-copy {  
   position: absolute;
   background-color: black;
   color: white;
   opacity: .6;
+  z-index: 2;
+  margin-top: 167px;
+  margin-left: -163px;
+  border-radius: 5px;
+  display: inline;
+  padding: 2px 5px 5px 5px;
+}
+
+.vid-wrap {
+  display: inline;
 }
 
 .grid {
@@ -174,13 +197,13 @@ iframe {
 .grid-sizer,
 .grid-item {
   width:25%;
-  overflow: auto;
   /* width: 10%; */
 /*   width: 33.333%; */
 }
 
 .grid-item {
   float: left;
+  position: relative;
 }
 
 .grid-item img {
