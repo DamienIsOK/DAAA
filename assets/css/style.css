@@ -174,15 +174,15 @@ iframe {
 }
 
 #copy {
-/*   display: flex;
+  display: flex;
   align-items: center;
- */  position: absolute;
+  position: absolute;
   background-color: black;
   color: white;
   opacity: .6;
   z-index: 2;
-  margin-top: -32px;
-  margin-left: 90px;
+  margin-top: -38px;
+  margin-left: 100px;
   padding: 2px 5px 5px 5px;
   border-radius: 5px;
 }
