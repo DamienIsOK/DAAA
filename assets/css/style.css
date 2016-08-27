@@ -266,7 +266,7 @@ iframe {
   }
 }
 
-.centered {
+/* .centered {
   text-align: center;
   margin-bottom: 25px;
 }
@@ -276,15 +276,15 @@ i {
 }
 
 .footer {
-  /* position: absolute; */
+ */  /* position: absolute; */
   /* bottom: 0; */
-  width: 100%;
+/*   width: 100%;
   height: 105px;
   background: linear-gradient(224deg, #ebaf3c, #e9662c, #00ac65, #078894, #2b2b2b, #f3703a, #fec34e, #4ab47a, #319aa8);
   background-size: 1800% 1800%;
   text-align: center;
-  /* padding-top: 118px; */
-  color: white;
+ */  /* padding-top: 118px; */
+/*   color: white;
   -webkit-animation: Background 46s ease infinite;
   -moz-animation: Background 46s ease infinite;
   animation: Background 46s ease infinite;
@@ -301,12 +301,13 @@ i {
 
 .wrapper {
   min-height: 100%;
-/*   height: auto !important; This line and the next line are not necessary unless you need IE6 support
+ *//*   height: auto !important; This line and the next line are not necessary unless you need IE6 support
   height: 100%;
- */  margin: 0 auto -105px; /* the bottom margin is the negative value of the footer's height */
+ */ /*  margin: 0 auto -55px; the bottom margin is the negative value of the footer's height
+  clear: both;
 }
 
 .wrapper {
   content: '';
   display: block;
-}
+} */
