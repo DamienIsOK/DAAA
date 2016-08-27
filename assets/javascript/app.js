@@ -107,19 +107,19 @@ $(document).ready(function() {
 
 	// show '#modal' when clicking on an element that
 	// has 'data-target="#modal"'
-	$('#modal').on('shown.bs.modal', function() {
+	// $('#modal').on('shown.bs.modal', function() {
 	// remove previous timeouts if it's opened more than once.
 	// clearTimeout(myModalTimeout);
 
 		// hide it after a second
-		setTimeout(function() {
+		// setTimeout(function() {
 
-			$('#modal').modal('hide');
+			// $('#modal').modal('hide');
 			// $('#modal').addClass('hide');
 
-		}, 1000);
+		// }, 1000);
 
-	});
+	// });
 
 
 
