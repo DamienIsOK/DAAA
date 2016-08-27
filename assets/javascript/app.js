@@ -488,7 +488,7 @@ $(document).ready(function() {
 
 	});
 
-
+	// DAMIEN IS RAD!!!
 	// $('.grid-item').mouseover('.copy', function(e) {
 	$('.grid').on('mouseenter', '.grid-item .copy', function() {
 
