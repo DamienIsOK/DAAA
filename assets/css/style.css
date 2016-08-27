@@ -206,7 +206,10 @@ iframe {
 
 .grid {
   display: inline-block;
-  margin-left: 1%;
+  /* margin-left: 1%; */
+  margin-left: 0.5%;
+  min-width: 100%;
+  min-height: 100%;
 }
 
 /* clear fix */
@@ -226,9 +229,18 @@ iframe {
 }
 
 .grid-item {
-  float: left;
+  float: right;
   position: relative;
+  margin-bottom: 4px;
 }
+
+/* .grid-item:even {
+  float: right;
+} */
+
+/* .grid-item:odd {
+  float: left;
+} */
 
 .grid-item img {
   /* display: block; */

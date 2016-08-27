@@ -179,6 +179,12 @@ $(document).ready(function() {
 	$('#submit').on('click', function(){
 
 
+	var query = $('#search').val().trim();
+
+	
+
+
+
 		// Run the form validation
 		formValidation();
 
@@ -189,7 +195,7 @@ $(document).ready(function() {
 
 
 
-		$('#pics').html('');
+		$('#pics').html('<div class="grid-sizer"></div>');
 
 		pic1_urls.length = 0;
 
@@ -229,9 +235,21 @@ $(document).ready(function() {
 				$grid.isotope('layout');
 			});
 
+	 		var counter = 0;
+
 			for(var i = 0; i < pic1_urls.length; i++) {
 
-				$('#pics').append('<div class="grid-item"><img src ='+ pic1_urls[i] + ' ><h4 class="copy btn" id="copy"  data-toggle="modal" data-target="#modal" data-clipboard-text="'+pic1_urls[i]+'">copy to clipboard</h4></div>');
+				counter++;
+
+				var $grid_item = $('<div class="grid-item"><img src ='+ pic1_urls[i] + ' ><h4 class="copy btn" id="copy"  data-toggle="modal" data-target="#modal" data-clipboard-text="'+pic1_urls[i]+'">copy to clipboard</h4></div>');
+
+				// if(counter < 4 || (counter > 7 && counter < 11)){
+				// 	$grid_item.css({'float':'right'});
+				// } else if((counter > 4 && counter <= 7) || counter >= 11) {
+				// 	$grid_item.css({'float':'left'});
+				// }
+
+				$('#pics').append($grid_item);
 
 			}
 
@@ -245,7 +263,7 @@ $(document).ready(function() {
 	//=================================================================
 
 
-		$('#gifs').html('');
+		$('#gifs').html('<div class="grid-sizer"></div>');
 
 		gif_urls.length = 0;
 		var searchTerm = $('#search').val().trim();
@@ -298,7 +316,7 @@ $(document).ready(function() {
 	//=================================================================
 
 
-		$('#pics').html('');
+		$('#pics').html('<div class="grid-sizer"></div>');
 
 		var searchTerm = $('#search').val().trim();
 		var url = "https://api.tumblr.com/v2/tagged?tag=" + 
@@ -400,7 +418,7 @@ $(document).ready(function() {
 	//=================================================================
 
 
-		$('#vids').html('');
+		$('#vids').html('<div class="grid-sizer"></div>');
 
 		var key = 'AIzaSyASwJE5ny3b5D_MMihhX8TUgPsucMsSI7E';
 	    var searchTerm = $('#search').val().trim();
@@ -452,7 +470,8 @@ $(document).ready(function() {
 		for(var i = 0; i < test_urls.length; i++) {
 
 			$('#wiki').append('<div class="grid-item"><img src="'
-					+test_urls[i] + '"><h4 class="copy btn" id="copy" data-toggle="modal" data-target="#modal" data-clipboard-text="'+test_urls[i]+'">copy to clipboard</h4></div>');
+					// +test_urls[i] + '"><h4 class="copy btn" id="copy" data-toggle="modal" data-target="#modal" data-clipboard-text="'+test_urls[i]+'">copy to clipboard</h4></div>');
+					 +test_urls[i] + '"><h4 class="copy btn" id="copy" data-toggle="modal" data-target="#modal" data-clipboard-text="'+test_urls[i]+'">copy to clipboard</h4></div>');
 
 		}
 
