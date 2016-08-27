@@ -150,6 +150,29 @@ iframe {
 }
  */
 
+.modal-content {
+  width: 70px;
+  padding: 0;
+  margin: 0;
+}
+
+.modal,
+.modal-dialog, 
+.modal-body {
+  padding: 0;
+  /* top: 30%; */
+  /* left: 20%; */
+}
+
+.modal-body {
+  padding-left: 7px;
+  /* top: 30%; */
+}
+
+#modal {
+  /* top: 30%; */
+}
+
 #copy {
 /*   display: flex;
   align-items: center;
