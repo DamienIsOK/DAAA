@@ -136,8 +136,8 @@ $(document).ready(function() {
 		$('.display-row').addClass('hide');
 		$('#picsContainer').removeClass('hide');
 		$('#icon-footer').css('background-color', '#EAAF48');
-		$('.icons').css('opacity', '.8');
-		$(this).css('opacity', '1');
+		// $('.icons').css('opacity', '.8');
+		// $(this).css('opacity', '1');
 
 	});
 
@@ -147,8 +147,8 @@ $(document).ready(function() {
 		$('.display-row').addClass('hide');
 		$('#gifsContainer').removeClass('hide');
 		$('#icon-footer').css('background-color', '#E76737');
-		$('.icons').css('opacity', '.8');
-		$(this).css('opacity', '1');
+		// $('.icons').css('opacity', '.8');
+		// $(this).css('opacity', '1');
 
 	});
 
@@ -158,8 +158,8 @@ $(document).ready(function() {
 		$('.display-row').addClass('hide');
 		$('#vidsContainer').removeClass('hide');
 		$('#icon-footer').css('background-color', '#168793');
-		$('.icons').css('opacity', '.8');
-		$(this).css('opacity', '1');
+		// $('.icons').css('opacity', '.8');
+		// $(this).css('opacity', '1');
 
 	});
 
@@ -169,8 +169,8 @@ $(document).ready(function() {
 		$('.display-row').addClass('hide');
 		$('#wikiContainer').removeClass('hide');
 		$('#icon-footer').css('background-color', '#19AA67');
-		$('.icons').css('opacity', '.8');
-		$(this).css('opacity', '1');
+		// $('.icons').css('opacity', '.8');
+		// $(this).css('opacity', '1');
 
 	});
 
