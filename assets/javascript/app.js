@@ -117,7 +117,7 @@ $(document).ready(function() {
 			// $('#modal').modal('hide');
 			// $('#modal').addClass('hide');
 
-		// }, 1000);
+	// 	}, 1000);
 
 	// });
 
@@ -350,7 +350,7 @@ $(document).ready(function() {
 				// Instructions on how to handle photos
 				if(tumblrType == "photo"){
 
-					// var tumblrImage = tumblrObject.response[i].photos[0].alt_sizes[3].url;
+					var tumblrImage = tumblrObject.response[i].photos[0].alt_sizes[3].url;
 					// var b = $('<input type="button" value="Copy link"/>')
 					// var b = $('<img src="assets/images/copy.png" />')
 					// 		.addClass("btn")
@@ -362,7 +362,7 @@ $(document).ready(function() {
 					// 	tumblrImage + "></div>" );
 					// $("#searchInput").val("");
 
-					// pic2_urls.push(tumblrImage);
+					pic2_urls.push(tumblrImage);
 
 				// Instructions on how to handle Tumblr videos
 				} else if(tumblrType == "video" && tumblrVideoType == "tumblr") {
@@ -384,24 +384,24 @@ $(document).ready(function() {
 
 			}
 
-			for(var i = 0; i < pic2_urls.length; i++) {
-				$("#pics").append("<div class='grid-item'><img src=" + 
-					pic2_urls[i] + "><h4 class='copy' id='copy' data-toggle='modal' data-target='#modal' data-clipboard-text='"+pic2_urls[i]+"'>copy to clipboard</h4></div>" );
-			}
+			// for(var i = 0; i < pic2_urls.length; i++) {
+			// 	$("#pics").append("<div class='grid-item'><img src=" + 
+			// 		pic2_urls[i] + "><h4 class='copy' id='copy' data-toggle='modal' data-target='#modal' data-clipboard-text='"+pic2_urls[i]+"'>copy to clipboard</h4></div>" );
+			// }
 
-			for(var i = 0; i < vid1_urls.length; i++) {
-				$("#vids").append("<div class='grid-item'><video controls>"+
-								" <source src= " + vid1_urls[i] + "> </video><h4 class='copy btn' id='copy' data-toggle='modal' data-target='#modal' data-clipboard-text='"+vid1_urls[i]+"'>copy to clipboard</h4></div>" );
-			}
+			// for(var i = 0; i < vid1_urls.length; i++) {
+			// 	$("#vids").append("<div class='grid-item'><video controls>"+
+			// 					" <source src= " + vid1_urls[i] + "> </video><h4 class='copy btn' id='copy' data-toggle='modal' data-target='#modal' data-clipboard-text='"+vid1_urls[i]+"'>copy to clipboard</h4></div>" );
+			// }
 
-			for(var i = 0; i < vid2_urls.length; i++) {
-				$("#vids").append("<div class='grid-item'><video controls>"+
-								" <source src= " + vid2_urls[i] + "> </video><h4 class='copy btn' id='copy' data-toggle='modal' data-target='#modal' data-clipboard-text='"+vid2_urls[i]+"'>copy to clipboard</h4></div>" );
-			}
+			// for(var i = 0; i < vid2_urls.length; i++) {
+			// 	$("#vids").append("<div class='grid-item'><video controls>"+
+			// 					" <source src= " + vid2_urls[i] + "> </video><h4 class='copy btn' id='copy' data-toggle='modal' data-target='#modal' data-clipboard-text='"+vid2_urls[i]+"'>copy to clipboard</h4></div>" );
+			// }
 
-	 		$grid.imagesLoaded().progress( function() {
-				$grid.isotope('layout');
-			});
+	 	// 	$grid.imagesLoaded().progress( function() {
+			// 	$grid.isotope('layout');
+			// });
 
 
 			pic2_urls.length = 0;
@@ -466,19 +466,19 @@ $(document).ready(function() {
 
 
 
-		$('#wiki').html('');
+		// $('#wiki').html('');
 
-		for(var i = 0; i < test_urls.length; i++) {
+		// for(var i = 0; i < test_urls.length; i++) {
 
-			$('#wiki').append('<div class="grid-item"><img src="'
-					// +test_urls[i] + '"><h4 class="copy btn" id="copy" data-toggle="modal" data-target="#modal" data-clipboard-text="'+test_urls[i]+'">copy to clipboard</h4></div>');
-					 +test_urls[i] + '"><h4 class="copy btn" id="copy" data-toggle="modal" data-target="#modal" data-clipboard-text="'+test_urls[i]+'">copy to clipboard</h4></div>');
+		// 	$('#wiki').append('<div class="grid-item"><img src="'
+		// 			// +test_urls[i] + '"><h4 class="copy btn" id="copy" data-toggle="modal" data-target="#modal" data-clipboard-text="'+test_urls[i]+'">copy to clipboard</h4></div>');
+		// 			 +test_urls[i] + '"><h4 class="copy btn" id="copy" data-toggle="modal" data-target="#modal" data-clipboard-text="'+test_urls[i]+'">copy to clipboard</h4></div>');
 
-		}
+		// }
 
- 		$grid.imagesLoaded().progress( function() {
-			$grid.isotope('layout');
-		});
+ 	// 	$grid.imagesLoaded().progress( function() {
+		// 	$grid.isotope('layout');
+		// });
 
  		vid3_urls.length = 0;
 
@@ -490,14 +490,16 @@ $(document).ready(function() {
 
 	// DAMIEN IS RAD!!!
 	// $('.grid-item').mouseover('.copy', function(e) {
-	$('.grid').on('mouseenter', '.grid-item .copy', function() {
+	// $('.grid').on('mouseenter', '.grid-item #copy', function() {
 
-		var pos = $(this).offset();
-		$('#modal').css({'top':pos.top-50, 'left':pos.left});
-		console.log(pos.top);
-		console.log(pos.left);
+	// 	var pos = $(this).offset();
+	// 	var top = Math.floor(pos.top-80).toString();
+	// 	var left = Math.floor(pos.left-200).toString();
+	// 	$('#modal').css({'top':top+'px', 'left':left+'px'});
+	// 	console.log(top);
+	// 	console.log(left);
 
-	});
+	// });
 
 
 

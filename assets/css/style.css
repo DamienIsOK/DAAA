@@ -1,3 +1,12 @@
+* {
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
 body{
   font-family: 'Open Sans', sans-serif;
 }
@@ -137,13 +146,6 @@ iframe {
   margin-bottom: 20px;
 }
 
-@media (max-width: 1190px) {
-  video,
-  iframe {
-    width: 259px;
-    height: 194.25px;
-  }
-}
 
 /* ---- grid ---- */
 
@@ -172,8 +174,9 @@ iframe {
 }
 
 #modal {
-  /* top: 30%; */
-}
+/*   top: 30%;
+  left: 50%;
+ */}
 
 #copy {
   display: flex;
@@ -184,7 +187,7 @@ iframe {
   opacity: .6;
   z-index: 2;
   margin-top: -38px;
-  margin-left: 100px;
+  margin-left: 93px;
   padding: 2px 5px 5px 5px;
   border-radius: 5px;
 }
@@ -211,7 +214,7 @@ iframe {
   /* margin-left: 1%; */
   margin-left: 0.5%;
   min-width: 100%;
-  min-height: 100%;
+  /* min-height: 100%; */
 }
 
 /* clear fix */
@@ -231,7 +234,7 @@ iframe {
 }
 
 .grid-item {
-  float: right;
+  float: left;
   position: relative;
   margin-bottom: 4.5px;
 }
@@ -248,4 +251,62 @@ iframe {
   /* display: block; */
   display: inline;
   width: 97%;
+}
+
+
+@media (max-width: 1190px) {
+  video,
+  iframe {
+    width: 259px;
+    height: 194.25px;
+  }
+
+  #copy {
+    margin-left: 52px;
+  }
+}
+
+.centered {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+i {
+  color: #c8c8c8;
+}
+
+.footer {
+  /* position: absolute; */
+  /* bottom: 0; */
+  width: 100%;
+  height: 105px;
+  background: linear-gradient(224deg, #ebaf3c, #e9662c, #00ac65, #078894, #2b2b2b, #f3703a, #fec34e, #4ab47a, #319aa8);
+  background-size: 1800% 1800%;
+  text-align: center;
+  /* padding-top: 118px; */
+  color: white;
+  -webkit-animation: Background 46s ease infinite;
+  -moz-animation: Background 46s ease infinite;
+  animation: Background 46s ease infinite;
+}
+
+.footer, .push {
+  height: 105px;
+  clear: both;
+}
+
+.push {
+  margin-bottom: 105px;
+}
+
+.wrapper {
+  min-height: 100%;
+/*   height: auto !important; This line and the next line are not necessary unless you need IE6 support
+  height: 100%;
+ */  margin: 0 auto -105px; /* the bottom margin is the negative value of the footer's height */
+}
+
+.wrapper {
+  content: '';
+  display: block;
 }
