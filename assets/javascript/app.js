@@ -231,7 +231,7 @@ $(document).ready(function() {
 
 			for(var i = 0; i < pic1_urls.length; i++) {
 
-				$('#pics').append('<div class="grid-item"><img src ='+ pic1_urls[i] + ' ><h4 class="copy" id="copy"  data-toggle="modal" data-target="#modal">copy to clipboard</h4></div>');
+				$('#pics').append('<div class="grid-item"><img src ='+ pic1_urls[i] + ' ><h4 class="copy btn" id="copy"  data-toggle="modal" data-target="#modal" data-clipboard-text="'+pic1_urls[i]+'">copy to clipboard</h4></div>');
 
 			}
 
@@ -268,7 +268,7 @@ $(document).ready(function() {
 			for (var i = 0; i < results.length; i++) {
 
 				imgurl = results[i].images.fixed_height.url;
-				gifImage = $('<div class="grid-item"><img src ='+ imgurl + ' ><h4 class="copy" id="copy" data-toggle="modal" data-target="#modal">copy to clipboard</h4></div>' );
+				gifImage = $('<div class="grid-item"><img src ='+ imgurl + ' ><h4 class="copy btn" id="copy" data-toggle="modal" data-target="#modal" data-clipboard-text="'+imgurl+'">copy to clipboard</h4></div>' );
 				// $("#gifs").append(gifImage);
 				gif_urls.push(gifImage);
 
@@ -372,17 +372,17 @@ $(document).ready(function() {
 
 			for(var i = 0; i < pic2_urls.length; i++) {
 				$("#pics").append("<div class='grid-item'><img src=" + 
-					pic2_urls[i] + "><h4 class='copy' id='copy' data-toggle='modal' data-target='#modal'>copy to clipboard</h4></div>" );
+					pic2_urls[i] + "><h4 class='copy' id='copy' data-toggle='modal' data-target='#modal' data-clipboard-text='"+pic2_urls[i]+"'>copy to clipboard</h4></div>" );
 			}
 
 			for(var i = 0; i < vid1_urls.length; i++) {
 				$("#vids").append("<div class='grid-item'><video controls>"+
-								" <source src= " + vid1_urls[i] + "> </video><h4 class='copy' id='copy' data-toggle='modal' data-target='#modal'>copy to clipboard</h4></div>" );
+								" <source src= " + vid1_urls[i] + "> </video><h4 class='copy btn' id='copy' data-toggle='modal' data-target='#modal' data-clipboard-text='"+vid1_urls[i]+"'>copy to clipboard</h4></div>" );
 			}
 
 			for(var i = 0; i < vid2_urls.length; i++) {
 				$("#vids").append("<div class='grid-item'><video controls>"+
-								" <source src= " + vid2_urls[i] + "> </video><h4 class='copy' id='copy' data-toggle='modal' data-target='#modal'>copy to clipboard</h4></div>" );
+								" <source src= " + vid2_urls[i] + "> </video><h4 class='copy btn' id='copy' data-toggle='modal' data-target='#modal' data-clipboard-text='"+vid2_urls[i]+"'>copy to clipboard</h4></div>" );
 			}
 
 	 		$grid.imagesLoaded().progress( function() {
@@ -437,7 +437,7 @@ $(document).ready(function() {
 	        for(var i = 0; i < vid3_urls.length; i++) {
 
 				$('#vids').append('<div class="vid-wrap"><iframe src="'+vid3_urls[i]+
-					'"></iframe><h4 class="copy" id="vid-copy" data-toggle="modal" data-target="#modal">copy to clipboard</h4></div>');
+					'"></iframe><h4 class="copy btn" id="vid-copy" data-toggle="modal" data-target="#modal" data-clipboard-text="'+vid3_urls[i]+'">copy to clipboard</h4></div>');
 				// $('#vids').append('<div class="grid-item"><video controls>"'+
 				// 				" <source src= " + vid2_urls[i] + "> </video></div>");
 
@@ -453,7 +453,7 @@ $(document).ready(function() {
 		for(var i = 0; i < test_urls.length; i++) {
 
 			$('#wiki').append('<div class="grid-item"><img src="'
-					+test_urls[i] + '"><h4 class="copy" id="copy" data-toggle="modal" data-target="#modal">copy to clipboard</h4></div>');
+					+test_urls[i] + '"><h4 class="copy btn" id="copy" data-toggle="modal" data-target="#modal" data-clipboard-text="'+test_urls[i]+'">copy to clipboard</h4></div>');
 
 		}
 
