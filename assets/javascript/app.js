@@ -81,8 +81,8 @@ $(document).ready(function() {
 
 		var x = document.forms["searchForm"]["searchField"].value;
 
-		if (x == "" || x.length < 2) {
-			$("#search").effect("shake", {times: 3}, 500);
+		if (x == "" || x.length < 2 || x == null) {
+			$("#searchForm").effect("shake", {times: 3}, 500);
 			return false;
 	    }
 
@@ -380,11 +380,7 @@ $(document).ready(function() {
 
 
 
-				} else if(tumblrType == "video" && tumblrVideoType == "youtube") {
-
-					vid2_urls.push(tumblrObject.response[i].permalink_url);
-
-				}
+				} 
 
 			}
 
