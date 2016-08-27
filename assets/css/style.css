@@ -231,7 +231,7 @@ iframe {
 .grid-item {
   float: right;
   position: relative;
-  margin-bottom: 4px;
+  margin-bottom: 4.5px;
 }
 
 /* .grid-item:even {
