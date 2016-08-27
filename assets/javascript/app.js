@@ -179,9 +179,11 @@ $(document).ready(function() {
 	$('#submit').on('click', function(){
 
 
-	var query = $('#search').val().trim();
+		var query = $('#search').val().trim();
 
-	
+		
+		$('#vids').html('');
+		$('#vids').html('<div class="grid-sizer"></div>');
 
 
 
@@ -378,8 +380,6 @@ $(document).ready(function() {
 
 					console.log('tumblr video!');
 
-
-
 				} 
 
 			}
@@ -404,6 +404,11 @@ $(document).ready(function() {
 			});
 
 
+			pic2_urls.length = 0;
+			vid1_urls.length = 0;
+			vid2_urls.length = 0;
+
+
 		})
 
 
@@ -414,13 +419,11 @@ $(document).ready(function() {
 	//=================================================================
 
 
-		$('#vids').html('<div class="grid-sizer"></div>');
-
 		var key = 'AIzaSyASwJE5ny3b5D_MMihhX8TUgPsucMsSI7E';
 	    var searchTerm = $('#search').val().trim();
 	    var url = 'https://www.googleapis.com/youtube/v3/search?q='+
 	            searchTerm + '&part=snippet&key=' + key +
-	            '&maxResults=20';
+	            '&maxResults=21';
 
 	    $.ajax({
 
@@ -446,6 +449,8 @@ $(document).ready(function() {
 	        }
 
 	        console.log(result);
+
+			$('#vids').html('<div class="grid-sizer"></div>');
 
 	        for(var i = 0; i < vid3_urls.length; i++) {
 
@@ -474,6 +479,8 @@ $(document).ready(function() {
  		$grid.imagesLoaded().progress( function() {
 			$grid.isotope('layout');
 		});
+
+ 		vid3_urls.length = 0;
 
 
 		return false;
