@@ -63,7 +63,7 @@ body{
 
 #icon-footer {
   height: 40px;
-  background-color: #E76737;
+  background-color: #EAAF48;
   margin-bottom: 20px;
 }
 
@@ -184,7 +184,7 @@ iframe {
   position: absolute;
   background-color: black;
   color: white;
-  opacity: .6;
+  /* opacity: .6; */
   z-index: 2;
   margin-top: -38px;
   margin-left: 93px;
@@ -207,6 +207,10 @@ iframe {
 
 .vid-wrap {
   display: inline;
+}
+
+.glyphicon-ok {
+  color: green;
 }
 
 .grid {
@@ -312,7 +316,7 @@ i {
   display: block;
 } */
 
-#wiki {
+#wiki-text {
   text-align: center;
   margin-top: 40px;
   font-size: 24px;

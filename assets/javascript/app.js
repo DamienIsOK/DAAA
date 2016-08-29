@@ -105,25 +105,6 @@ $(document).ready(function() {
 
 
 
-	// show '#modal' when clicking on an element that
-	// has 'data-target="#modal"'
-	// $('#modal').on('shown.bs.modal', function() {
-	// remove previous timeouts if it's opened more than once.
-	// clearTimeout(myModalTimeout);
-
-		// hide it after a second
-		// setTimeout(function() {
-
-			// $('#modal').modal('hide');
-			// $('#modal').addClass('hide');
-
-	// 	}, 1000);
-
-	// });
-
-
-
-
 
 
 	//=================================================================
@@ -136,8 +117,6 @@ $(document).ready(function() {
 		$('.display-row').addClass('hide');
 		$('#picsContainer').removeClass('hide');
 		$('#icon-footer').css('background-color', '#EAAF48');
-		// $('.icons').css('opacity', '.8');
-		// $(this).css('opacity', '1');
 
 	});
 
@@ -147,8 +126,6 @@ $(document).ready(function() {
 		$('.display-row').addClass('hide');
 		$('#gifsContainer').removeClass('hide');
 		$('#icon-footer').css('background-color', '#E76737');
-		// $('.icons').css('opacity', '.8');
-		// $(this).css('opacity', '1');
 
 	});
 
@@ -158,8 +135,6 @@ $(document).ready(function() {
 		$('.display-row').addClass('hide');
 		$('#vidsContainer').removeClass('hide');
 		$('#icon-footer').css('background-color', '#168793');
-		// $('.icons').css('opacity', '.8');
-		// $(this).css('opacity', '1');
 
 	});
 
@@ -169,8 +144,6 @@ $(document).ready(function() {
 		$('.display-row').addClass('hide');
 		$('#wikiContainer').removeClass('hide');
 		$('#icon-footer').css('background-color', '#19AA67');
-		// $('.icons').css('opacity', '.8');
-		// $(this).css('opacity', '1');
 
 	});
 
@@ -244,12 +217,6 @@ $(document).ready(function() {
 				counter++;
 
 				var $grid_item = $('<div class="grid-item"><img src ='+ pic1_urls[i] + ' ><h4 class="copy btn" id="copy"  data-toggle="modal" data-target="#modal" data-clipboard-text="'+pic1_urls[i]+'">copy to clipboard</h4></div>');
-
-				// if(counter < 4 || (counter > 7 && counter < 11)){
-				// 	$grid_item.css({'float':'right'});
-				// } else if((counter > 4 && counter <= 7) || counter >= 11) {
-				// 	$grid_item.css({'float':'left'});
-				// }
 
 				$('#pics').append($grid_item);
 
@@ -345,17 +312,10 @@ $(document).ready(function() {
 				var $newButton = $("<button>").data("id", "link"+i)
 											.data("data-clipboard-target", "post-shortlink");
 				
-				// *** ARPAD - THIS BLOCK HAS BEEN UPDATED AND SHOULD BE MERGED ***
-										
 				// Instructions on how to handle photos
 				if(tumblrType == "photo"){
 
 					var tumblrImage = tumblrObject.response[i].photos[0].alt_sizes[3].url;
-					// var b = $('<input type="button" value="Copy link"/>')
-					// var b = $('<img src="assets/images/copy.png" />')
-					// 		.addClass("btn")
-					// 		.attr("data-clipboard-text", tumblrImage);
-					// 		console.log(tumblrImage);
 
 					// Appending the results
 					// $("#pics").append("<div class='grid-item'><img src=" + 
@@ -366,11 +326,6 @@ $(document).ready(function() {
 
 				// Instructions on how to handle Tumblr videos
 				} else if(tumblrType == "video" && tumblrVideoType == "tumblr") {
-
-					// var b = $('<img src="assets/images/copy.png" />')
-					// 		.addClass("btn")
-					// 		.attr("data-clipboard-text", tumblrVideo);
-					// 		console.log(tumblrVideo);
 
 					// $("#vids").append("<div class='grid-item'><video controls>"+
 					// 	" <source src= " + tumblrVideo + "> </video></div>" );
@@ -384,10 +339,10 @@ $(document).ready(function() {
 
 			}
 
-			// for(var i = 0; i < pic2_urls.length; i++) {
-			// 	$("#pics").append("<div class='grid-item'><img src=" + 
-			// 		pic2_urls[i] + "><h4 class='copy' id='copy' data-toggle='modal' data-target='#modal' data-clipboard-text='"+pic2_urls[i]+"'>copy to clipboard</h4></div>" );
-			// }
+			for(var i = 0; i < pic2_urls.length; i++) {
+				$("#pics").append("<div class='grid-item'><img src=" + 
+					pic2_urls[i] + "><h4 class='copy' id='copy' data-toggle='modal' data-target='#modal' data-clipboard-text='"+pic2_urls[i]+"'>copy to clipboard</h4></div>" );
+			}
 
 			// for(var i = 0; i < vid1_urls.length; i++) {
 			// 	$("#vids").append("<div class='grid-item'><video controls>"+
@@ -488,18 +443,17 @@ $(document).ready(function() {
 
 	});
 
-	// DAMIEN IS RAD!!!
-	// $('.grid-item').mouseover('.copy', function(e) {
-	// $('.grid').on('mouseenter', '.grid-item #copy', function() {
 
-	// 	var pos = $(this).offset();
-	// 	var top = Math.floor(pos.top-80).toString();
-	// 	var left = Math.floor(pos.left-200).toString();
-	// 	$('#modal').css({'top':top+'px', 'left':left+'px'});
-	// 	console.log(top);
-	// 	console.log(left);
+	$('.grid').on('click', '.grid-item #copy', function() {
 
-	// });
+		$(this).html('copied! <span class="glyphicon glyphicon-ok"></span>');
+
+		setTimeout(function() {
+			$('.grid .grid-item #copy').html('copy to clipboard');
+		}, 1000);
+
+
+	});
 
 
 
