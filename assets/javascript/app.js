@@ -57,6 +57,8 @@ $(document).ready(function() {
 	
 	firebase.initializeApp(config);
 
+	var dataRef = firebase.database();
+
 
 
 	// external js: isotope.pkgd.js, imagesloaded.pkgd.js
@@ -70,9 +72,12 @@ $(document).ready(function() {
 	}); 
 
 	// layout Isotope after each image loads
-	// $grid.imagesLoaded().progress( function() {
-	// 	$grid.isotope('layout');
-	// });
+	$grid.imagesLoaded().progress( function() {
+		$grid.isotope('layout');
+	});
+
+
+	var query = '';
 
 
 
@@ -151,10 +156,9 @@ $(document).ready(function() {
 
 	$('#submit').on('click', function(){
 
+		query = $('#search').val().trim();
 
-		var query = $('#search').val().trim();
-
-		
+	
 		$('#vids').html('');
 		$('#vids').html('<div class="grid-sizer"></div>');
 
@@ -174,7 +178,7 @@ $(document).ready(function() {
 
 		pic1_urls.length = 0;
 
-		var searchTerm = $('#search').val().trim();
+		var searchTerm = query;
 		var img_queryURL = "https://api.imgur.com/3/gallery/search/top/all"+
 							"&?q_type=jpg&q_all=" + searchTerm;
 
@@ -235,7 +239,7 @@ $(document).ready(function() {
 		$('#gifs').html('<div class="grid-sizer"></div>');
 
 		gif_urls.length = 0;
-		var searchTerm = $('#search').val().trim();
+		var searchTerm = query;
 
 		// console.log(searchTerm);
 		var queryURL = 'http://api.giphy.com/v1/gifs/search?q=' +
@@ -287,7 +291,7 @@ $(document).ready(function() {
 
 		$('#pics').html('<div class="grid-sizer"></div>');
 
-		var searchTerm = $('#search').val().trim();
+		var searchTerm = query;
 		var url = "https://api.tumblr.com/v2/tagged?tag=" + 
 			searchTerm + "&api_key=LlesQOluubqkqrscBuJN7EvvMLdiLyJyRSskIzYzaaroBQVBQQ";
 
@@ -314,15 +318,18 @@ $(document).ready(function() {
 				
 				// Instructions on how to handle photos
 				if(tumblrType == "photo"){
-
-					var tumblrImage = tumblrObject.response[i].photos[0].alt_sizes[3].url;
+					// if(tumblrObject.response[i].photos[0].alt_sizes[3].url != undefined
+					// ||tumblrObject.response[i].photos[0].alt_sizes[3].url != null) {
+					// 	var tumblrImage = tumblrObject.response[i].photos[0].alt_sizes[3].url;
+					// }
+					
 
 					// Appending the results
 					// $("#pics").append("<div class='grid-item'><img src=" + 
 					// 	tumblrImage + "></div>" );
 					// $("#searchInput").val("");
 
-					pic2_urls.push(tumblrImage);
+					// pic2_urls.push(tumblrImage);
 
 				// Instructions on how to handle Tumblr videos
 				} else if(tumblrType == "video" && tumblrVideoType == "tumblr") {
@@ -339,10 +346,10 @@ $(document).ready(function() {
 
 			}
 
-			for(var i = 0; i < pic2_urls.length; i++) {
-				$("#pics").append("<div class='grid-item'><img src=" + 
-					pic2_urls[i] + "><h4 class='copy' id='copy' data-toggle='modal' data-target='#modal' data-clipboard-text='"+pic2_urls[i]+"'>copy to clipboard</h4></div>" );
-			}
+			// for(var i = 0; i < pic2_urls.length; i++) {
+			// 	$("#pics").append("<div class='grid-item'><img src=" + 
+			// 		pic2_urls[i] + "><h4 class='copy' id='copy' data-toggle='modal' data-target='#modal' data-clipboard-text='"+pic2_urls[i]+"'>copy to clipboard</h4></div>" );
+			// }
 
 			// for(var i = 0; i < vid1_urls.length; i++) {
 			// 	$("#vids").append("<div class='grid-item'><video controls>"+
@@ -375,7 +382,7 @@ $(document).ready(function() {
 
 
 		var key = 'AIzaSyASwJE5ny3b5D_MMihhX8TUgPsucMsSI7E';
-	    var searchTerm = $('#search').val().trim();
+	    var searchTerm = query;
 	    var url = 'https://www.googleapis.com/youtube/v3/search?q='+
 	            searchTerm + '&part=snippet&key=' + key +
 	            '&maxResults=21';
@@ -420,6 +427,10 @@ $(document).ready(function() {
 	    // q ='';
 
 
+	//=================================================================
+	//	wikipedia code
+	//=================================================================
+
 
 		// $('#wiki').html('');
 
@@ -438,10 +449,112 @@ $(document).ready(function() {
  		vid3_urls.length = 0;
 
 
+
+	//=================================================================
+	//	firebase code
+	//=================================================================
+
+
+
+		dataRef.ref("/query_terms").once('value', function(snap) {
+
+			// console.log(childSnapshot.val().query_terms);
+
+			var already_saved = false;
+
+
+			snap.forEach(function(childSnapshot) {
+
+				if(childSnapshot.val().query_term === query) {
+
+					var times_used = childSnapshot.val().times_used;
+
+					console.log(times_used);
+
+					childSnapshot.ref.update({
+						times_used : times_used+1
+					});
+
+					already_saved = true;
+
+					return true;
+
+				}
+
+			});
+
+
+
+			if(already_saved === false) {
+
+				dataRef.ref('query_terms').push({
+
+					query_term: query,
+					times_used: 1
+
+				});
+
+			}
+
+			console.log(childSnapshot.val().query_terms);
+
+
+
+			// for(var saved_query in childSnapshot.val().query_terms) {
+
+			// 	console.log(saved_query.query_term);
+			// 	console.log(childSnapshot.val().query_terms[saved_query.query_term]);
+
+			// 	if(saved_query.query_term == query) {
+
+			// 		console.log(saved_query.query_term+' is the same as '+query);
+			// 		// dataRef.ref('query_terms').push({
+
+			// 		// });
+
+			// 		// return 0;
+
+			// 	}
+
+			// }
+
+
+			// console.log(childSnapshot.val().times_used);
+
+		// }, function(errorObject) {
+
+		// 	console.log("The add failed: " + errorObject.code);
+
+		// });
+
+
+		// dataRef.ref('query_terms').once("value", function(childSnapshot) {
+
+			// dataRef.ref('query_terms').push({
+			// 	query_term: query,
+			// 	times_used: 1
+			// });
+
+		});
+
+
+	//=================================================================
+	//	end of click event
+	//=================================================================
+
 		return false;
 
 
 	});
+
+//=====================================================================
+
+
+
+
+	//=================================================================
+	//	success message code
+	//=================================================================
 
 
 	$('.grid').on('click', '.grid-item #copy', function() {
@@ -454,7 +567,6 @@ $(document).ready(function() {
 
 
 	});
-
 
 
 
