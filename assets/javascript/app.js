@@ -456,11 +456,47 @@ $(document).ready(function() {
 
 
 
-		dataRef.ref("/query_terms").once('value', function(snap) {
+		dataRef.ref("query_terms").once('value', function(snap) {
 
 			// console.log(childSnapshot.val().query_terms);
 
 			var already_saved = false;
+
+
+			dataRef.ref('query_terms').orderByChild('times_used').on('value', function(childSnapshot) {
+
+				console.log(childSnapshot.val());
+
+				var trending = [];
+
+
+				childSnapshot.forEach(function(childOfChild) {
+
+					var qt = childOfChild.val().query_term;
+					var tu = childOfChild.val().times_used;
+
+					trending.push(qt);
+
+					console.log(qt+' was used '+tu+' times');
+
+				});
+
+
+				trending.reverse();
+
+				$('#trending').html('');
+
+				for(var i = 0; i < 8; i++) {
+
+					console.log(trending[i]);
+
+					var trending_item = $('<h5>').html(trending[i]);
+
+					$('#trending').append(trending_item);
+
+				}
+
+			});
 
 
 			snap.forEach(function(childSnapshot) {
@@ -480,7 +516,7 @@ $(document).ready(function() {
 					return true;
 
 				}
-
+				// console.log(childSnapshot);
 			});
 
 
@@ -494,9 +530,19 @@ $(document).ready(function() {
 
 				});
 
+				// snap.forEach(function(childSnapshot) {
+
+				// 	console.log(childSnapshot.val());
+
+				// });
+
+				// dataRef.ref('query_terms').orderByChild('times_used').on('value', function(childSnapshot) {
+				// 	console.log(childSnapshot.val());
+				// });
+
 			}
 
-			console.log(childSnapshot.val().query_terms);
+			// console.log(snap.val().query_terms);
 
 
 

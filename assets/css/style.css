@@ -42,6 +42,19 @@ body{
     100%{background-position:93% 0%}
 }
 
+#trending-header {
+  margin-top: -90px;
+  margin-left: -40px;
+}
+
+#trending {
+  margin-top: 15px;
+  margin-left: -40px;
+}
+
+h3 strong {
+  font-weight: bold;
+}
 
 #replyHUB {
   padding-bottom: 35px;
